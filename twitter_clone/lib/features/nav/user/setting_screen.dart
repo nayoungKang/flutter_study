@@ -1,6 +1,7 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -8,29 +9,21 @@ import 'package:twitter_clone/constants/gaps.dart';
 import 'package:twitter_clone/features/nav/user/privacy_screen.dart';
 import 'package:twitter_clone/settings/view_models/dark_theme_vm.dart';
 
-class SettingScreen extends StatefulWidget {
+class SettingScreen extends ConsumerWidget {
   const SettingScreen({super.key});
 
-  @override
-  State<SettingScreen> createState() => _SettingScreenState();
-}
+  //stf widget 일 때 레거시들
+  // void _onPrivacyTapped(BuildContext context) {
+  //   GoRouter.of(context).go('/setting/privacy');
+  // }
 
-class _SettingScreenState extends State<SettingScreen> {
-  void _onPrivacyTapped(BuildContext context) {
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(builder: (context) => const PrivacyScreen()),
-    // );
-    GoRouter.of(context).go('/setting/privacy');
-  }
-
-  void _onDarkModeSwitched(bool value) {
-    context.read<DarkThemeConfigViewModel>().setDark(value);
-  }
+  // void _onDarkModeSwitched(bool value) {
+  //   context.read<DarkThemeConfigViewModel>().setDark(value);
+  // }
 
   @override
-  Widget build(BuildContext context) {
-    bool isDark = context.watch<DarkThemeConfigViewModel>().isDark;
+  Widget build(BuildContext context, WidgetRef ref) {
+    bool isDark = ref.watch(DarkThemeProvider).isDark;
 
     return Scaffold(
       appBar: AppBar(
@@ -47,7 +40,8 @@ class _SettingScreenState extends State<SettingScreen> {
               ],
             ),
             value: isDark,
-            onChanged: _onDarkModeSwitched,
+            onChanged: (value) =>
+                ref.read(DarkThemeProvider.notifier).setDark(value),
           ),
           ListTile(
             onTap: () {},
@@ -60,7 +54,7 @@ class _SettingScreenState extends State<SettingScreen> {
             title: const Text("Notifications"),
           ),
           ListTile(
-            onTap: () => _onPrivacyTapped(context),
+            onTap: () {}, //=> _onPrivacyTapped(context),
             leading: const Icon(FontAwesomeIcons.lock),
             title: const Text("Privacy"),
           ),

@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:twitter_clone/settings/models/dark_theme_model.dart';
 import 'package:twitter_clone/settings/repos/dark_theme_repo.dart';
 
-class DarkThemeConfigViewModel extends ChangeNotifier {
+class DarkThemeConfigViewModel extends Notifier<DarkThemeModel> {
   final DarkThemeConfigRepository _repository;
   DarkThemeConfigViewModel(this._repository);
 
@@ -11,6 +12,20 @@ class DarkThemeConfigViewModel extends ChangeNotifier {
 
   void setDark(bool value) {
     _repository.setDark(value);
-    notifyListeners();
+    state = DarkThemeModel(
+      isDark: value,
+    );
+  }
+
+  @override
+  DarkThemeModel build() {
+    return DarkThemeModel(
+      isDark: _repository.isDark(),
+    );
   }
 }
+
+final DarkThemeProvider =
+    NotifierProvider<DarkThemeConfigViewModel, DarkThemeModel>(
+  () => throw UnimplementedError(),
+);
