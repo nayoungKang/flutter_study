@@ -6,6 +6,8 @@ import 'package:twitter_clone/features/nav/widgets/profile_img.dart';
 import 'package:twitter_clone/features/nav/widgets/thread.dart';
 
 class NavHomeScreen extends StatefulWidget {
+  static String routeName = "home";
+  static String routeURL = "/home";
   const NavHomeScreen({
     super.key,
   });

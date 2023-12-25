@@ -7,7 +7,7 @@ import 'package:twitter_clone/constants/gaps.dart';
 import 'package:twitter_clone/constants/sizes.dart';
 import 'package:twitter_clone/features/common/connect_buttons_set.dart';
 import 'package:twitter_clone/features/nav/widgets/extra_on_ellipsis.dart';
-import 'package:twitter_clone/features/nav/user/setting_screen.dart';
+
 import 'package:twitter_clone/features/nav/user/widgets/replis_tab_detail.dart';
 import 'package:twitter_clone/features/nav/user/widgets/user_sceen_tap_header.dart';
 import 'package:twitter_clone/utils/util.dart';

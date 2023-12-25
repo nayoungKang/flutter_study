@@ -6,6 +6,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:twitter_clone/constants/gaps.dart';
+import 'package:twitter_clone/features/auth/login_screen.dart';
+import 'package:twitter_clone/features/auth/repos/authentication_repo.dart';
 import 'package:twitter_clone/features/nav/user/privacy_screen.dart';
 import 'package:twitter_clone/settings/view_models/dark_theme_vm.dart';
 
@@ -75,28 +77,33 @@ class SettingScreen extends ConsumerWidget {
           ),
           const Divider(),
           TextButton(
-            onPressed: () => showAdaptiveDialog(
-              context: context,
-              builder: (BuildContext context) => AlertDialog.adaptive(
-                title: const Text('Log out'),
-                content: const Text('Are you sure?'),
-                actions: [
-                  IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(FontAwesomeIcons.check),
-                    color: Colors.red,
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(FontAwesomeIcons.x),
-                  ),
-                ],
-              ),
-            ),
+            onPressed: () {
+              ref.read(authRepo).signOut();
+              //context.go(LoginScreen.routeURL);
+              GoRouter.of(context).go(LoginScreen.routeURL);
+              /*showAdaptiveDialog(
+                context: context,
+                builder: (BuildContext context) => AlertDialog.adaptive(
+                  title: const Text('Log out'),
+                  content: const Text('Are you sure?'),
+                  actions: [
+                    IconButton(
+                      onPressed: () {
+                        //
+                      },
+                      icon: const Icon(FontAwesomeIcons.check),
+                      color: Colors.red,
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(FontAwesomeIcons.x),
+                    ),
+                  ],
+                ),
+              );*/
+            },
             child: const Text(
               "Log out",
               style: TextStyle(color: Colors.blue),
