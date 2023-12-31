@@ -46,6 +46,7 @@ class TwitterApp extends ConsumerWidget {
           ? ThemeMode.dark
           : ThemeMode.light,
        */
+
       themeMode: ThemeMode.dark,
     );
   }

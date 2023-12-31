@@ -42,6 +42,7 @@ class _NavMainScreenState extends State<NavMainScreen> {
   void _onWriteClicked() {
     showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
       builder: (context) {
         return const WriteScreen();
         // return Padding(

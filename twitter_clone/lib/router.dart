@@ -42,12 +42,14 @@ final _shellNavigatorKey = GlobalKey<NavigatorState>();
 
 final routerProvider = Provider(
   (ref) => GoRouter(
-    initialLocation: LoginScreen.routeURL,
+    initialLocation: ref.read(authRepo).isLoggedIn
+        ? NavHomeScreen.routeURL
+        : LoginScreen.routeURL,
     navigatorKey: _rootNavigatorKey,
     redirect: (context, state) {
       final isLoggedIn = ref.read(authRepo).isLoggedIn;
       if (!isLoggedIn) {
-        print("not logined");
+        //print("not logined");
         if (state.subloc != SignUpFormScreen.routeURL &&
             state.subloc != LoginFormScreen.routeURL &&
             state.subloc != LoginScreen.routeURL) {
