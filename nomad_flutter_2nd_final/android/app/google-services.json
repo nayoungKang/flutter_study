@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1052430975911",
+    "project_id": "do-som2thing-nomad2ndfinal",
+    "storage_bucket": "do-som2thing-nomad2ndfinal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052430975911:android:6139996a1f44bfc9326c82",
+        "android_client_info": {
+          "package_name": "com.example.nomad_flutter_2nd_final"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgq6ZXTrLZwxXMivqz-pe4wyl4cgLZoAY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

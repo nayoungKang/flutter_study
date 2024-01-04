@@ -7,6 +7,7 @@ import 'package:nomad_flutter_2nd_final/routers.dart';
 // A Counter example implemented with riverpod
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
