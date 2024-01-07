@@ -4,13 +4,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nomad_flutter_2nd_final/views/mood_post_screen.dart';
 import 'package:nomad_flutter_2nd_final/views/moods_screen.dart';
-import 'package:nomad_flutter_2nd_final/widgets/appbar.dart';
 import 'package:nomad_flutter_2nd_final/widgets/nav_tab.dart';
 
 import '../../../constants/sizes.dart';
 
 class MainNavScreen extends StatefulWidget {
-  static const String routeName = '/';
+  static const String url = '/';
   final String tab;
   const MainNavScreen({
     super.key,

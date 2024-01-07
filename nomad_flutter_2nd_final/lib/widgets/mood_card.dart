@@ -26,7 +26,7 @@ class MoodCard extends StatelessWidget {
             ],
             border: Border.all(width: Sizes.size2),
             borderRadius: BorderRadius.circular(Sizes.size28),
-            color: Colors.teal.shade200,
+            color: Theme.of(context).secondaryHeaderColor,
           ),
           child: const Column(
             crossAxisAlignment: CrossAxisAlignment.start,

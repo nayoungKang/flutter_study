@@ -19,6 +19,7 @@ class MoodPostScreen extends StatelessWidget {
     "😇",
   ];
 
+  void _onPostTap(BuildContext context) {}
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -54,18 +55,18 @@ class MoodPostScreen extends StatelessWidget {
                       padding:
                           const EdgeInsets.symmetric(horizontal: Sizes.size3),
                       decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(),
-                          borderRadius: BorderRadius.circular(Sizes.size10),
-                          boxShadow: const [
-                            BoxShadow(
-                              // color: Colors.grey.withOpacity(0.7),
-                              spreadRadius: 0,
-                              // blurRadius: 5.0,
-                              offset:
-                                  Offset(1, 1), // changes position of shadow
-                            ),
-                          ]),
+                        // color: Colors.white,
+                        border: Border.all(),
+                        borderRadius: BorderRadius.circular(Sizes.size10),
+                        boxShadow: const [
+                          BoxShadow(
+                            // color: Colors.grey.withOpacity(0.7),
+                            spreadRadius: 0,
+                            // blurRadius: 5.0,
+                            offset: Offset(1, 1), // changes position of shadow
+                          ),
+                        ],
+                      ),
                       child: Center(
                         child: Text(
                           moods[index],
@@ -80,7 +81,7 @@ class MoodPostScreen extends StatelessWidget {
                 ),
               ),
               Gaps.v14,
-              const Center(child: Btn(txt: "Post")),
+              Center(child: Btn(onTap: _onPostTap, txt: "Post")),
             ],
           ),
         ),
